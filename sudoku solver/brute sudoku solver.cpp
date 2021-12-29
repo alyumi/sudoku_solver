@@ -40,8 +40,7 @@ bool isSafe(int grid[N][N], int row, int col, int num)
 
     for (int i = 0; i < 3; i++)
         for (int j = 0; j < 3; j++)
-            if (grid[i + startRow][j +
-                startCol] == num)
+            if (grid[i + startRow][j + startCol] == num)
                 return false;
 
     return true;
@@ -62,16 +61,12 @@ bool solveSudoku(int grid[N][N], int row, int col)
 
     for (int num = 1; num <= N; num++)
     {
-
         if (isSafe(grid, row, col, num))
         {
-
             grid[row][col] = num;
-
             if (solveSudoku(grid, row, col + 1))
                 return true;
         }
-
         grid[row][col] = 0;
     }
     return false;
@@ -82,14 +77,14 @@ bool solveSudoku(int grid[N][N], int row, int col)
 int main()
 {
     int sudoku[9][9] = { {-1, 6, 1, 4, -1, 8, -1, -1, 7},
-                           {-1, -1, -1, -1, -1, 1, 2, 9, -1},
-                           {-1, -1, -1, -1, 3, 9, -1, -1, -1},
-                           {7, -1, -1, -1, -1, 4, 5, 1, 6},
-                           {-1, 2, -1, 1, -1, -1, 9, -1, -1},
-                           {1, 4, 8, 9, -1, -1, 7, -1, 3},
-                           {3, 9, 6, 8, 4, 5, -1, -1, 2},
-                           {-1, -1, -1, 3, -1, 2, 8, -1, 9},
-                           {8, -1, 2, -1, 9, 7, -1, 3, -1} };
+                         {-1, -1, -1, -1, -1, 1, 2, 9, -1},
+                         {-1, -1, -1, -1, 3, 9, -1, -1, -1},
+                         {7, -1, -1, -1, -1, 4, 5, 1, 6},
+                         {-1, 2, -1, 1, -1, -1, 9, -1, -1},
+                         {1, 4, 8, 9, -1, -1, 7, -1, 3},
+                         {3, 9, 6, 8, 4, 5, -1, -1, 2},
+                         {-1, -1, -1, 3, -1, 2, 8, -1, 9},
+                         {8, -1, 2, -1, 9, 7, -1, 3, -1} };
 
     if (solveSudoku(sudoku, 0, 0)) {
         print(sudoku);
